@@ -2,6 +2,7 @@ import React from "react";
 import {Box, Card, CardContent, Typography} from "@mui/material";
 
 export interface Props {
+  title: string,
   name: string,
   email: string,
   company: string,
@@ -10,16 +11,16 @@ export interface Props {
   description: string,
 }
 
-const TextFormCardMolecule: React.FC<Props> = ({
-                                                 name, email,
-                                                 company, phone,
-                                                 position, description,
-                                               }) => {
+const CardMolecule: React.FC<Props> = ({
+                                         title, name, email,
+                                         company, phone,
+                                         position, description,
+                                       }) => {
   const card = (
     <React.Fragment>
       <CardContent>
         <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
-          Profile
+          {title}
         </Typography>
         <Typography variant="h5" component="div">
           {name}
@@ -45,4 +46,4 @@ const TextFormCardMolecule: React.FC<Props> = ({
   </div>;
 }
 
-export default TextFormCardMolecule;
+export default CardMolecule;

@@ -1,5 +1,5 @@
 import TextFormAtom from '../atoms/textform/TextFormAtom';
-import TextFormCardMolecule from "../molecules/card/TextFormCardMolecule.tsx";
+import CardMolecule from "../molecules/card/CardMolecule.tsx";
 
 const ProjectPage = () => {
 
@@ -8,7 +8,8 @@ const ProjectPage = () => {
       <h1>Project Page</h1>
       <TextFormAtom value={'test'} onChange={function (): void {
       }}/>
-      <TextFormCardMolecule
+      <CardMolecule
+        title={'Profile'}
         name={'Teddy Kim'} email={'asketeddy@gmail.com'}
         company={'stargaser'} phone={'010-2851-3738'}
         position={'front-end'} description={'develop react, flutter.'}
