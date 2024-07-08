@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
+import React from "react";
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
   '& .MuiInputBase-root': {
@@ -44,13 +45,22 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const TextFormAtom = () => {
+export interface TextFormAtomProps {
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  label?: string;
+}
+
+const TextFormAtom: React.FC<TextFormAtomProps> = ({ value, onChange, placeholder, label = 'Input' }) => {
   return (
     <StyledTextField
       variant="outlined"
-      placeholder="Type here..."
-      label="Input"
+      placeholder={placeholder}
+      label={label}
       fullWidth
+      value={value}
+      onChange={onChange}
     />
   );
 };
