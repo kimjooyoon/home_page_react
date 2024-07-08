@@ -1,9 +1,9 @@
 import React from "react";
-import { Button, ButtonProps } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import {Button, ButtonProps} from "@mui/material";
+import {styled} from "@mui/material/styles";
 
 // StyledButton 정의
-const StyledButton = styled(Button)(({ theme }) => ({
+const StyledButton = styled(Button)(({theme}) => ({
   '&:hover': {
     backgroundColor: theme.palette.action.hover,
   },
@@ -16,12 +16,15 @@ export interface ButtonAtomProps extends ButtonProps {
 }
 
 // ButtonAtom 컴포넌트 정의
-const ButtonAtom: React.FC<ButtonAtomProps> = ({ onClick, children, ...props }) => {
-  return (
-    <StyledButton onClick={onClick} {...props}>
-      {children}
-    </StyledButton>
-  );
-};
+const ButtonAtom: React.FC<ButtonAtomProps> =
+  ({
+     onClick, children, ...props
+   }) => {
+    return (
+      <StyledButton onClick={onClick} {...props}>
+        {children}
+      </StyledButton>
+    );
+  };
 
 export default ButtonAtom;
