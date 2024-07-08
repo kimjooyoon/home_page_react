@@ -1,7 +1,6 @@
 import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom'; // extend-expect를 생략합니다.
 import TextFormAtom from './TextFormAtom.tsx';
-import {ChangeEvent} from 'react';
 
 describe('TextFormAtom Component', () => {
   test('should render correctly', () => {
@@ -10,7 +9,7 @@ describe('TextFormAtom Component', () => {
 
     render(<TextFormAtom
       value={value}
-      onChange={function (_: ChangeEvent<HTMLInputElement>): void {
+      onChange={function (): void {
         throw new Error('Function not implemented.');
       }}
       placeholder={placeHolder}
