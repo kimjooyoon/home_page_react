@@ -10,7 +10,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 // ButtonAtomProps 인터페이스 정의
-interface ButtonAtomProps extends ButtonProps {
+export interface ButtonAtomProps extends ButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children?: React.ReactNode;
 }
