@@ -1,17 +1,16 @@
 import React from "react";
 import {styled} from "@mui/material/styles";
-import {MenuItem} from "@mui/material";
+import {MenuItem, MenuItemProps} from "@mui/material";
 
 const StyledMenuItemAtom =
-  styled(MenuItem)(() => ({
-  }));
+  styled(MenuItem)(() => ({}));
 
 export interface MenuItemAtomProps {
   value: string,
   name: string,
 }
 
-const MenuItemAtom: React.FC<MenuItemAtomProps> =
+const MenuItemAtomValueName: React.FC<MenuItemAtomProps> =
   ({
      value,
      name,
@@ -22,5 +21,15 @@ const MenuItemAtom: React.FC<MenuItemAtomProps> =
       </StyledMenuItemAtom>
     );
   };
+
+export {MenuItemAtomValueName}
+
+const MenuItemAtom: React.FC<MenuItemProps> =
+  (props) => {
+    return (
+      <StyledMenuItemAtom {...props} />
+    );
+  };
+
 
 export default MenuItemAtom;

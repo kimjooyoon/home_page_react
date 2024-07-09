@@ -1,7 +1,7 @@
 import React from "react";
 import {styled} from "@mui/material/styles";
 import {Select} from "@mui/material";
-import MenuItemAtom from "./menuitem/MenuItemAtom.tsx";
+import {MenuItemAtomValueName} from "../menuitem/MenuItemAtom.tsx";
 
 const StyledDropDownAtom =
   styled(Select)(({theme}) => ({
@@ -24,7 +24,7 @@ const DropDownAtom: React.FC<DropDownAtomProps> =
    }) => {
     return (
       <StyledDropDownAtom onClick={onClick} {...props} value="">
-        <MenuItemAtom value="" name={"None"}/>
+        <MenuItemAtomValueName value="" name={"None"}/>
         {children}
       </StyledDropDownAtom>
     );
