@@ -1,21 +1,19 @@
 import * as React from "react";
-import { PaletteMode } from "@mui/material";
+import {PaletteMode} from "@mui/material";
 import Box from "../../atoms/box/BoxAtom.tsx";
 import Button from "../../atoms/button/ButtonAtom.tsx";
-import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
-import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
 import Container from "../../atoms/container/ContainerAtom.tsx";
-import { ToolBarAtomNavigation } from "../../atoms/toolbar/ToolBarAtom.tsx";
+import {ToolBarAtomNavigation} from "../../atoms/toolbar/ToolBarAtom.tsx";
 import Image from "../../atoms/image/ImageAtom.tsx";
 import MenuItem from "../../atoms/menuitem/MenuItemAtom.tsx";
 import Typography from "../../atoms/typography/TypographyAtom.tsx";
-import { IconAtomMenu } from "../../atoms/icon/IconAtom.tsx";
+import {IconAtomMenu, IconAtomModeNightRounded, IconAtomWbSunnyRounded} from "../../atoms/icon/IconAtom.tsx";
 import Drawer from "../../atoms/drawer/DrawerAtom.tsx";
 import Divider from "../../atoms/divider/DividerAtom.tsx";
-import { AppBarAtomFixed } from "../../atoms/appbar/AppBarAtom.tsx";
+import {AppBarAtomFixed} from "../../atoms/appbar/AppBarAtom.tsx";
 import ButtonAtom from "../../atoms/button/ButtonAtom.tsx";
 
-const NavigationBarMolecule = ({ mode, toggleColorMode }: AppAppBarProps) => {
+const NavigationBarMolecule = ({mode, toggleColorMode}: AppAppBarProps) => {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -51,37 +49,42 @@ const NavigationBarMolecule = ({ mode, toggleColorMode }: AppAppBarProps) => {
                 style={logoStyle}
                 alt="logo of sitemark"
               />
-              <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                <MenuItem sx={{ py: '6px', px: '12px' }}>
-                  <Button href="/" onClick={() => { }}>
+              <Box sx={{display: {xs: 'none', md: 'flex'}}}>
+                <MenuItem sx={{py: '6px', px: '12px'}}>
+                  <Button href="/" onClick={() => {
+                  }}>
                     <Typography variant="body2" color="text.primary">
                       회사 소개
                     </Typography>
                   </Button>
                 </MenuItem>
-                <MenuItem sx={{ py: '6px', px: '12px' }}>
-                  <Button href="/projects" onClick={() => { }}>
+                <MenuItem sx={{py: '6px', px: '12px'}}>
+                  <Button href="/projects" onClick={() => {
+                  }}>
                     <Typography variant="body2" color="text.primary">
                       프로젝트
                     </Typography>
                   </Button>
                 </MenuItem>
-                <MenuItem sx={{ py: '6px', px: '12px' }}>
-                  <Button href="/admin-chat" onClick={() => { }}>
+                <MenuItem sx={{py: '6px', px: '12px'}}>
+                  <Button href="/admin-chat" onClick={() => {
+                  }}>
                     <Typography variant="body2" color="text.primary">
                       관리자와 대화
                     </Typography>
                   </Button>
                 </MenuItem>
-                <MenuItem sx={{ py: '6px', px: '12px' }}>
-                  <Button href="/schedule" onClick={() => { }}>
+                <MenuItem sx={{py: '6px', px: '12px'}}>
+                  <Button href="/schedule" onClick={() => {
+                  }}>
                     <Typography variant="body2" color="text.primary">
                       일정
                     </Typography>
                   </Button>
                 </MenuItem>
-                <MenuItem sx={{ py: '6px', px: '12px' }}>
-                  <Button href="/profile" onClick={() => { }}>
+                <MenuItem sx={{py: '6px', px: '12px'}}>
+                  <Button href="/profile" onClick={() => {
+                  }}>
                     <Typography variant="body2" color="text.primary">
                       프로필
                     </Typography>
@@ -91,14 +94,15 @@ const NavigationBarMolecule = ({ mode, toggleColorMode }: AppAppBarProps) => {
             </Box>
             <Box
               sx={{
-                display: { xs: 'none', md: 'flex' },
+                display: {xs: 'none', md: 'flex'},
                 gap: 0.5,
                 alignItems: 'center',
               }}
             >
-              <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
+              <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode}/>
               <Button
-                onClick={() => { }}
+                onClick={() => {
+                }}
                 color="primary"
                 variant="text"
                 size="small"
@@ -107,7 +111,8 @@ const NavigationBarMolecule = ({ mode, toggleColorMode }: AppAppBarProps) => {
                 Sign in
               </Button>
               <Button
-                onClick={() => { }}
+                onClick={() => {
+                }}
                 color="primary"
                 variant="contained"
                 size="small"
@@ -116,15 +121,15 @@ const NavigationBarMolecule = ({ mode, toggleColorMode }: AppAppBarProps) => {
                 Sign up
               </Button>
             </Box>
-            <Box sx={{ display: { sm: '', md: 'none' } }}>
+            <Box sx={{display: {sm: '', md: 'none'}}}>
               <Button
                 variant="text"
                 color="primary"
                 aria-label="menu"
                 onClick={toggleDrawer(true)}
-                sx={{ minWidth: '30px', p: '4px' }}
+                sx={{minWidth: '30px', p: '4px'}}
               >
-                <IconAtomMenu />
+                <IconAtomMenu/>
               </Button>
               <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
                 <Box
@@ -143,52 +148,59 @@ const NavigationBarMolecule = ({ mode, toggleColorMode }: AppAppBarProps) => {
                       flexGrow: 1,
                     }}
                   >
-                    <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
+                    <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode}/>
                   </Box>
                   <MenuItem>
-                    <ButtonAtom href="/" onClick={() => { }}>
+                    <ButtonAtom href="/" onClick={() => {
+                    }}>
                       회사 소개
                     </ButtonAtom>
                   </MenuItem>
                   <MenuItem>
-                    <ButtonAtom href="/projects" onClick={() => { }}>
+                    <ButtonAtom href="/projects" onClick={() => {
+                    }}>
                       프로젝트
                     </ButtonAtom>
                   </MenuItem>
                   <MenuItem>
-                    <ButtonAtom href="/admin-chat" onClick={() => { }}>
+                    <ButtonAtom href="/admin-chat" onClick={() => {
+                    }}>
                       관리자와 대화
                     </ButtonAtom>
                   </MenuItem>
                   <MenuItem>
-                    <ButtonAtom href="/schedule" onClick={() => { }}>
+                    <ButtonAtom href="/schedule" onClick={() => {
+                    }}>
                       일정
                     </ButtonAtom>
                   </MenuItem>
                   <MenuItem>
-                    <ButtonAtom href="/profile" onClick={() => { }}>
+                    <ButtonAtom href="/profile" onClick={() => {
+                    }}>
                       프로필
                     </ButtonAtom>
                   </MenuItem>
-                  <Divider />
+                  <Divider/>
                   <MenuItem>
                     <Button
-                      onClick={() => { }}
+                      onClick={() => {
+                      }}
                       color="primary"
                       variant="contained"
                       href="/sign-up"
-                      sx={{ width: '100%' }}
+                      sx={{width: '100%'}}
                     >
                       Sign up
                     </Button>
                   </MenuItem>
                   <MenuItem>
                     <Button
-                      onClick={() => { }}
+                      onClick={() => {
+                      }}
                       color="primary"
                       variant="outlined"
                       href="/sign-in"
-                      sx={{ width: '100%' }}
+                      sx={{width: '100%'}}
                     >
                       Sign in
                     </Button>
@@ -208,20 +220,20 @@ interface ToggleColorModeProps {
   toggleColorMode: () => void;
 }
 
-function ToggleColorMode({ mode, toggleColorMode }: ToggleColorModeProps) {
+function ToggleColorMode({mode, toggleColorMode}: ToggleColorModeProps) {
   return (
-    <Box sx={{ maxWidth: '32px' }}>
+    <Box sx={{maxWidth: '32px'}}>
       <Button
         variant="text"
         size="small"
         aria-label="button to toggle theme"
         onClick={toggleColorMode}
-        sx={{ minWidth: '32px', height: '32px', p: '4px' }}
+        sx={{minWidth: '32px', height: '32px', p: '4px'}}
       >
         {mode === 'dark' ? (
-          <WbSunnyRoundedIcon fontSize="small" />
+          <IconAtomWbSunnyRounded/>
         ) : (
-          <ModeNightRoundedIcon fontSize="small" />
+          <IconAtomModeNightRounded/>
         )}
       </Button>
     </Box>
