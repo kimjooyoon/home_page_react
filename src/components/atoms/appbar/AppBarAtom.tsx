@@ -16,6 +16,7 @@ import {ToolBarAtomNavigation} from "../toolbar/ToolBarAtom.tsx";
 import DividerAtom from "../divider/DividerAtom.tsx";
 import ContainerAtom from "../container/ContainerAtom.tsx";
 import DrawerAtom from "../drawer/DrawerAtom.tsx";
+import ImageAtom from "../image/ImageAtom";
 
 interface ToggleColorModeProps {
   mode: PaletteMode;
@@ -83,7 +84,7 @@ function AppAppBar({mode}: AppAppBarProps) {
                 px: 0,
               }}
             >
-              <img
+              <ImageAtom
                 src={
                   'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
                 }
