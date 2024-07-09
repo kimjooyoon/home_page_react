@@ -19,7 +19,7 @@ const InProgressButton = styled(StyledButton)(() => ({
   },
 }));
 
-const CancelledButton = styled(StyledButton)(() => ({
+const CanceledButton = styled(StyledButton)(() => ({
   backgroundColor: '#F5B7B1',
   borderColor: '#E74C3C',
   color: '#C0392B',
@@ -37,4 +37,4 @@ const CompletedButton = styled(StyledButton)(() => ({
   },
 }));
 
-export {PlannedButton, InProgressButton, CancelledButton, CompletedButton};
+export {PlannedButton, InProgressButton, CanceledButton, CompletedButton};

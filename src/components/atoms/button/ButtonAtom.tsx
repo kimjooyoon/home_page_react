@@ -1,7 +1,7 @@
 import React from "react";
 import {ButtonProps} from "@mui/material";
 import StyledButton from "./StyledButton";
-import {CancelledButton, CompletedButton, InProgressButton, PlannedButton} from "./StatusButtons.tsx";
+import {CanceledButton, CompletedButton, InProgressButton, PlannedButton} from "./StatusButtons.tsx";
 
 export interface ButtonAtomProps extends ButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -54,10 +54,10 @@ const ButtonAtomInProgress = () => {
     진행중
   </InProgressButton>
 }
-const ButtonAtomCancelled = () => {
-  return <CancelledButton variant={"outlined"}>
+const ButtonAtomCanceled = () => {
+  return <CanceledButton variant={"outlined"}>
     취소됨
-  </CancelledButton>
+  </CanceledButton>
 }
 const ButtonAtomCompleted = () => {
   return <CompletedButton variant={"outlined"}>
@@ -65,4 +65,4 @@ const ButtonAtomCompleted = () => {
   </CompletedButton>
 }
 
-export {ButtonAtomPlanned, ButtonAtomInProgress, ButtonAtomCancelled, ButtonAtomCompleted};
+export {ButtonAtomPlanned, ButtonAtomInProgress, ButtonAtomCanceled, ButtonAtomCompleted};
