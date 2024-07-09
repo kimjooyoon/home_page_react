@@ -1,49 +1,5 @@
-import {styled} from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
-import React from "react";
-
-const StyledTextField = styled(TextField)(({theme}) => ({
-  '& .MuiInputBase-root': {
-    color: theme.palette.text.primary,
-    backgroundColor: theme.palette.background.paper,
-    borderRadius: theme.shape.borderRadius,
-    padding: theme.spacing(1, 1.5),
-    boxShadow: theme.shadows[1],
-
-    '&:hover': {
-      backgroundColor: theme.palette.action.hover,
-    },
-
-    '&.Mui-focused': {
-      backgroundColor: theme.palette.background.default,
-      boxShadow: `0 0 0 2px ${theme.palette.primary.main}`,
-    },
-
-    'input': {
-      padding: theme.spacing(1),
-    },
-  },
-
-  '& .MuiInputLabel-root': {
-    color: theme.palette.text.secondary,
-  },
-
-  '& .MuiInputLabel-root.Mui-focused': {
-    color: theme.palette.primary.main,
-  },
-
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: theme.palette.divider,
-    },
-    '&:hover fieldset': {
-      borderColor: theme.palette.text.primary,
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: theme.palette.primary.main,
-    },
-  },
-}));
+import React from 'react';
+import TextForm from './TextForm';
 
 export interface TextFormAtomProps {
   value: string;
@@ -53,17 +9,41 @@ export interface TextFormAtomProps {
 }
 
 const TextFormAtom: React.FC<TextFormAtomProps> =
-  ({value, onChange, placeholder, label = 'Input'}) => {
+  ({
+     value,
+     onChange,
+     placeholder,
+     label = 'Input',
+   }) => {
     return (
-      <StyledTextField
-        variant="outlined"
-        placeholder={placeholder}
+      <TextForm
         label={label}
-        fullWidth
+        placeholder={placeholder}
         value={value}
         onChange={onChange}
+        multiline={false}
+      />
+    );
+  };
+
+const TextFieldMultilineAtom: React.FC<TextFormAtomProps> =
+  ({
+     value,
+     onChange,
+     placeholder,
+     label = 'Input',
+   }) => {
+    return (
+      <TextForm
+        placeholder={placeholder}
+        label={label}
+        value={value}
+        onChange={onChange}
+        multiline={true}
+        rows={4}
       />
     );
   };
 
 export default TextFormAtom;
+export {TextFieldMultilineAtom};
