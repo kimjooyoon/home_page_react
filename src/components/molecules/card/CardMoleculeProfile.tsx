@@ -15,7 +15,7 @@ export interface Props {
   description: string,
 }
 
-const CardMolecule: React.FC<Props> =
+const CardMoleculeProfile: React.FC<Props> =
   ({
      title, name, email,
      company, phone,
@@ -24,14 +24,14 @@ const CardMolecule: React.FC<Props> =
     const card = (
       <React.Fragment>
         <CardContentAtom>
-          <TypographyAtom sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+          <TypographyAtom sx={{fontSize: 14}} gutterBottom>
             {title}
           </TypographyAtom>
           <TypographyAtom variant="h5" component="div">
             {name}
           </TypographyAtom>
           <br/>
-          <TypographyAtom sx={{mb: 1.5}} color="text.secondary">
+          <TypographyAtom sx={{mb: 1.5}}>
             Email: {email}
             <br/>Position: {position}
             <br/>Phone: {phone}
@@ -51,4 +51,4 @@ const CardMolecule: React.FC<Props> =
     </div>;
   }
 
-export default CardMolecule;
+export {CardMoleculeProfile};

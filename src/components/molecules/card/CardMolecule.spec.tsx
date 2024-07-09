@@ -1,6 +1,6 @@
 import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom'; // extend-expect를 생략합니다.
-import CardMolecule from "./CardMolecule.tsx";
+import {CardMoleculeProfile} from "./CardMoleculeProfile.tsx";
 
 
 describe('TextFormCardMolecule', () => {
@@ -13,7 +13,7 @@ describe('TextFormCardMolecule', () => {
     const givenPosition = 'front-end'
     const givenDescription = 'develop react, flutter.'
 
-    render(<CardMolecule
+    render(<CardMoleculeProfile
       title={givenTitle}
       name={givenName}
       email={givenEmail}
