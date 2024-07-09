@@ -2,6 +2,7 @@ import React from "react";
 import {ButtonProps} from "@mui/material";
 import StyledButton from "./StyledButton";
 import SaveIcon from '@mui/icons-material/Save';
+import {CancelledButton, CompletedButton, InProgressButton, PlannedButton} from "./StatusButtons.tsx";
 
 export interface ButtonAtomProps extends ButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -25,11 +26,37 @@ const ButtonAtom: React.FC<ButtonAtomProps> =
     );
   };
 
+export default ButtonAtom;
+
+
 const ButtonAtomSaveIcon: React.FC<ButtonAtomProps> = (props) => {
   return (
     <ButtonAtom {...props} startIcon={<SaveIcon/>}/>
   );
 };
 
-export default ButtonAtom;
 export {ButtonAtomSaveIcon};
+
+
+const ButtonAtomPlanned = () => {
+  return <PlannedButton variant={"outlined"}>
+    예정됨
+  </PlannedButton>
+}
+const ButtonAtomInProgress = () => {
+  return <InProgressButton variant={"outlined"}>
+    진행중
+  </InProgressButton>
+}
+const ButtonAtomCancelled = () => {
+  return <CancelledButton variant={"outlined"}>
+    취소됨
+  </CancelledButton>
+}
+const ButtonAtomCompleted = () => {
+  return <CompletedButton variant={"outlined"}>
+    완료됨
+  </CompletedButton>
+}
+
+export {ButtonAtomPlanned, ButtonAtomInProgress, ButtonAtomCancelled, ButtonAtomCompleted};
