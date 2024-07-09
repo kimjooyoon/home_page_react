@@ -9,7 +9,7 @@ export interface TimeSlot {
 export interface SlotType {
   label: string;
   color: string;
-  type: 'inProgress' | 'start' | 'end' | 'start-end';
+  type: 'inProgress' | 'start' | 'end' | 'start-end' | 'empty';
 }
 
 export const sampleTimeSlots: TimeSlot[] = [
