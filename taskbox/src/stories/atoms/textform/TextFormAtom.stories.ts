@@ -12,6 +12,6 @@ type Story = StoryObj<typeof TextFormAtom>;
 
 export const Basic: Story = {
   args: {
-    value: 'hi'
+    value: 'this is single line atom'
   }
 };
