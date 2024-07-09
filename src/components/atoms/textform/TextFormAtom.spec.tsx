@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import TextFormAtom from './TextFormAtom';
-import { TextFieldMultilineAtom } from './TextFormAtom';
+import { TextFieldAtomMultiline } from './TextFormAtom';
 
 describe('TextFormAtom Component', () => {
   test('should render correctly', () => {
@@ -32,7 +32,7 @@ describe('TextFieldMultilineAtom Component', () => {
     const placeHolder = 'Type your text...';
 
     render(
-      <TextFieldMultilineAtom
+      <TextFieldAtomMultiline
         value={value}
         onChange={function (): void {
           throw new Error('Function not implemented.');

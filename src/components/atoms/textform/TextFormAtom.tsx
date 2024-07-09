@@ -26,7 +26,7 @@ const TextFormAtom: React.FC<TextFormAtomProps> =
     );
   };
 
-const TextFieldMultilineAtom: React.FC<TextFormAtomProps> =
+const TextFieldAtomMultiline: React.FC<TextFormAtomProps> =
   ({
      value,
      onChange,
@@ -46,4 +46,4 @@ const TextFieldMultilineAtom: React.FC<TextFormAtomProps> =
   };
 
 export default TextFormAtom;
-export {TextFieldMultilineAtom};
+export {TextFieldAtomMultiline};

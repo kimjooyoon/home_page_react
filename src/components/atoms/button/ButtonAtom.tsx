@@ -1,23 +1,35 @@
 import React from "react";
 import {ButtonProps} from "@mui/material";
-import {StyledButton} from "./StyledButton.tsx";
+import StyledButton from "./StyledButton";
+import SaveIcon from '@mui/icons-material/Save';
 
-// ButtonAtomProps 인터페이스 정의
 export interface ButtonAtomProps extends ButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children?: React.ReactNode;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
 }
 
-// ButtonAtom 컴포넌트 정의
 const ButtonAtom: React.FC<ButtonAtomProps> =
   ({
-     onClick, children
+     onClick,
+     children,
+     startIcon,
+     endIcon,
+     ...rest
    }) => {
     return (
-      <StyledButton onClick={onClick}>
+      <StyledButton onClick={onClick} startIcon={startIcon} endIcon={endIcon} {...rest}>
         {children}
       </StyledButton>
     );
   };
 
+const ButtonAtomSaveIcon: React.FC<ButtonAtomProps> = (props) => {
+  return (
+    <ButtonAtom {...props} startIcon={<SaveIcon/>}/>
+  );
+};
+
 export default ButtonAtom;
+export {ButtonAtomSaveIcon};
