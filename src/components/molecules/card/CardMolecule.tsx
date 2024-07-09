@@ -1,6 +1,9 @@
 import React from "react";
-import {Box, Card, CardContent} from "@mui/material";
+
 import TypographyAtom from "../../atoms/typography/TypographyAtom.tsx";
+import CardAtom from "../../atoms/card/CardAtom.tsx";
+import CardContentAtom from "../../atoms/cardcontent/CardContentAtom.tsx";
+import BoxAtom from "../../atoms/box/BoxAtom.tsx";
 
 export interface Props {
   title: string,
@@ -20,7 +23,7 @@ const CardMolecule: React.FC<Props> =
    }) => {
     const card = (
       <React.Fragment>
-        <CardContent>
+        <CardContentAtom>
           <TypographyAtom sx={{fontSize: 14}} color="text.secondary" gutterBottom>
             {title}
           </TypographyAtom>
@@ -37,14 +40,14 @@ const CardMolecule: React.FC<Props> =
           <TypographyAtom variant="body2">
             {description}
           </TypographyAtom>
-        </CardContent>
+        </CardContentAtom>
       </React.Fragment>
     );
 
     return <div>
-      <Box sx={{minWidth: 275}}>
-        <Card variant="outlined" role={'article'} data-testid="text-form-card">{card}</Card>
-      </Box>
+      <BoxAtom sx={{minWidth: 275}}>
+        <CardAtom variant="outlined" role={'article'} data-testid="text-form-card">{card}</CardAtom>
+      </BoxAtom>
     </div>;
   }
 
