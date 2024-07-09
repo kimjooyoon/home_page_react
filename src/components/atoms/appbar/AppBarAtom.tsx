@@ -1,9 +1,6 @@
 import * as React from 'react';
 
 import AppBar from '@mui/material/AppBar';
-import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
 
 import {PaletteMode} from '@mui/material';
 
@@ -16,6 +13,9 @@ import TypographyAtom from "../typography/TypographyAtom.tsx";
 import MenuItemAtom from "../menuitem/MenuItemAtom.tsx";
 import {IconAtomMenu} from "../icon/IconAtom.tsx";
 import ToolBarAtom from "../toolbar/ToolBarAtom.tsx";
+import DividerAtom from "../divider/DividerAtom.tsx";
+import ContainerAtom from "../container/ContainerAtom.tsx";
+import DrawerAtom from "../drawer/DrawerAtom.tsx";
 
 interface ToggleColorModeProps {
   mode: PaletteMode;
@@ -72,7 +72,7 @@ function AppAppBar({mode}: AppAppBarProps) {
           mt: 2,
         }}
       >
-        <Container maxWidth="lg">
+        <ContainerAtom maxWidth="lg">
           <ToolBarAtom
             variant="regular"
             sx={(theme) => ({
@@ -190,7 +190,7 @@ function AppAppBar({mode}: AppAppBarProps) {
               >
                 <IconAtomMenu/>
               </ButtonAtom>
-              <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+              <DrawerAtom anchor="right" open={open} onClose={toggleDrawer(false)}>
                 <BoxAtom
                   sx={{
                     minWidth: '60dvw',
@@ -224,7 +224,7 @@ function AppAppBar({mode}: AppAppBarProps) {
                   <MenuItemAtom>
                     FAQ
                   </MenuItemAtom>
-                  <Divider/>
+                  <DividerAtom/>
                   <MenuItemAtom>
                     <ButtonAtom
                       color="primary"
@@ -250,10 +250,10 @@ function AppAppBar({mode}: AppAppBarProps) {
                     </ButtonAtom>
                   </MenuItemAtom>
                 </BoxAtom>
-              </Drawer>
+              </DrawerAtom>
             </BoxAtom>
           </ToolBarAtom>
-        </Container>
+        </ContainerAtom>
       </AppBar>
     </div>
   );
