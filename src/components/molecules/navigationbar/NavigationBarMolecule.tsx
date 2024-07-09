@@ -1,21 +1,21 @@
 import * as React from "react";
-import {PaletteMode} from "@mui/material";
-
-import BoxAtom from "../../atoms/box/BoxAtom.tsx";
-import ButtonAtom from "../../atoms/button/ButtonAtom.tsx";
+import { PaletteMode } from "@mui/material";
+import Box from "../../atoms/box/BoxAtom.tsx";
+import Button from "../../atoms/button/ButtonAtom.tsx";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
-import ContainerAtom from "../../atoms/container/ContainerAtom.tsx";
-import {ToolBarAtomNavigation} from "../../atoms/toolbar/ToolBarAtom.tsx";
-import ImageAtom from "../../atoms/image/ImageAtom.tsx";
-import MenuItemAtom from "../../atoms/menuitem/MenuItemAtom.tsx";
-import TypographyAtom from "../../atoms/typography/TypographyAtom.tsx";
-import {IconAtomMenu} from "../../atoms/icon/IconAtom.tsx";
-import DrawerAtom from "../../atoms/drawer/DrawerAtom.tsx";
-import DividerAtom from "../../atoms/divider/DividerAtom.tsx";
-import {AppBarAtomFixed} from "../../atoms/appbar/AppBarAtom.tsx";
+import Container from "../../atoms/container/ContainerAtom.tsx";
+import { ToolBarAtomNavigation } from "../../atoms/toolbar/ToolBarAtom.tsx";
+import Image from "../../atoms/image/ImageAtom.tsx";
+import MenuItem from "../../atoms/menuitem/MenuItemAtom.tsx";
+import Typography from "../../atoms/typography/TypographyAtom.tsx";
+import { IconAtomMenu } from "../../atoms/icon/IconAtom.tsx";
+import Drawer from "../../atoms/drawer/DrawerAtom.tsx";
+import Divider from "../../atoms/divider/DividerAtom.tsx";
+import { AppBarAtomFixed } from "../../atoms/appbar/AppBarAtom.tsx";
+import ButtonAtom from "../../atoms/button/ButtonAtom.tsx";
 
-const NavigationBarMolecule = ({mode}: AppAppBarProps) => {
+const NavigationBarMolecule = ({ mode, toggleColorMode }: AppAppBarProps) => {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -33,9 +33,9 @@ const NavigationBarMolecule = ({mode}: AppAppBarProps) => {
           mt: 2,
         }}
       >
-        <ContainerAtom maxWidth="lg">
+        <Container maxWidth="lg">
           <ToolBarAtomNavigation>
-            <BoxAtom
+            <Box
               sx={{
                 flexGrow: 1,
                 display: 'flex',
@@ -44,94 +44,90 @@ const NavigationBarMolecule = ({mode}: AppAppBarProps) => {
                 px: 0,
               }}
             >
-              <ImageAtom
+              <Image
                 src={
                   'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
                 }
                 style={logoStyle}
                 alt="logo of sitemark"
               />
-              <BoxAtom sx={{display: {xs: 'none', md: 'flex'}}}>
-                <MenuItemAtom
-                  sx={{py: '6px', px: '12px'}}
-                >
-                  <TypographyAtom variant="body2" color="text.primary">
-                    Features
-                  </TypographyAtom>
-                </MenuItemAtom>
-                <MenuItemAtom
-                  sx={{py: '6px', px: '12px'}}
-                >
-                  <TypographyAtom variant="body2" color="text.primary">
-                    Testimonials
-                  </TypographyAtom>
-                </MenuItemAtom>
-                <MenuItemAtom
-                  sx={{py: '6px', px: '12px'}}
-                >
-                  <TypographyAtom variant="body2" color="text.primary">
-                    Highlights
-                  </TypographyAtom>
-                </MenuItemAtom>
-                <MenuItemAtom
-                  sx={{py: '6px', px: '12px'}}
-                >
-                  <TypographyAtom variant="body2" color="text.primary">
-                    Pricing
-                  </TypographyAtom>
-                </MenuItemAtom>
-                <MenuItemAtom
-                  sx={{py: '6px', px: '12px'}}
-                >
-                  <TypographyAtom variant="body2" color="text.primary">
-                    FAQ
-                  </TypographyAtom>
-                </MenuItemAtom>
-              </BoxAtom>
-            </BoxAtom>
-            <BoxAtom
+              <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                <MenuItem sx={{ py: '6px', px: '12px' }}>
+                  <Button href="/" onClick={() => { }}>
+                    <Typography variant="body2" color="text.primary">
+                      회사 소개
+                    </Typography>
+                  </Button>
+                </MenuItem>
+                <MenuItem sx={{ py: '6px', px: '12px' }}>
+                  <Button href="/projects" onClick={() => { }}>
+                    <Typography variant="body2" color="text.primary">
+                      프로젝트
+                    </Typography>
+                  </Button>
+                </MenuItem>
+                <MenuItem sx={{ py: '6px', px: '12px' }}>
+                  <Button href="/admin-chat" onClick={() => { }}>
+                    <Typography variant="body2" color="text.primary">
+                      관리자와 대화
+                    </Typography>
+                  </Button>
+                </MenuItem>
+                <MenuItem sx={{ py: '6px', px: '12px' }}>
+                  <Button href="/schedule" onClick={() => { }}>
+                    <Typography variant="body2" color="text.primary">
+                      일정
+                    </Typography>
+                  </Button>
+                </MenuItem>
+                <MenuItem sx={{ py: '6px', px: '12px' }}>
+                  <Button href="/profile" onClick={() => { }}>
+                    <Typography variant="body2" color="text.primary">
+                      프로필
+                    </Typography>
+                  </Button>
+                </MenuItem>
+              </Box>
+            </Box>
+            <Box
               sx={{
-                display: {xs: 'none', md: 'flex'},
+                display: { xs: 'none', md: 'flex' },
                 gap: 0.5,
                 alignItems: 'center',
               }}
             >
-              <ToggleColorMode mode={mode}/>
-              <ButtonAtom
+              <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
+              <Button
+                onClick={() => { }}
                 color="primary"
                 variant="text"
                 size="small"
-                onClick={() => {
-                }}
-                component="a"
-                href="/material-ui/getting-started/templates/sign-in/"
+                href="/sign-in"
               >
                 Sign in
-              </ButtonAtom>
-              <ButtonAtom
+              </Button>
+              <Button
+                onClick={() => { }}
                 color="primary"
                 variant="contained"
                 size="small"
-                component="a"
-                href="/material-ui/getting-started/templates/sign-up/"
-                onClick={() => {
-                }}
+                href="/sign-up"
               >
                 Sign up
-              </ButtonAtom>
-            </BoxAtom>
-            <BoxAtom sx={{display: {sm: '', md: 'none'}}}>
-              <ButtonAtom
+              </Button>
+            </Box>
+            <Box sx={{ display: { sm: '', md: 'none' } }}>
+              <Button
                 variant="text"
                 color="primary"
                 aria-label="menu"
                 onClick={toggleDrawer(true)}
-                sx={{minWidth: '30px', p: '4px'}}
+                sx={{ minWidth: '30px', p: '4px' }}
               >
-                <IconAtomMenu/>
-              </ButtonAtom>
-              <DrawerAtom anchor="right" open={open} onClose={toggleDrawer(false)}>
-                <BoxAtom
+                <IconAtomMenu />
+              </Button>
+              <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+                <Box
                   sx={{
                     minWidth: '60dvw',
                     p: 2,
@@ -139,7 +135,7 @@ const NavigationBarMolecule = ({mode}: AppAppBarProps) => {
                     flexGrow: 1,
                   }}
                 >
-                  <BoxAtom
+                  <Box
                     sx={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -147,53 +143,61 @@ const NavigationBarMolecule = ({mode}: AppAppBarProps) => {
                       flexGrow: 1,
                     }}
                   >
-                    <ToggleColorMode mode={mode}/>
-                  </BoxAtom>
-                  <MenuItemAtom>
-                    Features
-                  </MenuItemAtom>
-                  <MenuItemAtom>
-                    Testimonials
-                  </MenuItemAtom>
-                  <MenuItemAtom>
-                    Highlights
-                  </MenuItemAtom>
-                  <MenuItemAtom>
-                    Pricing
-                  </MenuItemAtom>
-                  <MenuItemAtom>
-                    FAQ
-                  </MenuItemAtom>
-                  <DividerAtom/>
-                  <MenuItemAtom>
-                    <ButtonAtom
+                    <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
+                  </Box>
+                  <MenuItem>
+                    <ButtonAtom href="/" onClick={() => { }}>
+                      회사 소개
+                    </ButtonAtom>
+                  </MenuItem>
+                  <MenuItem>
+                    <ButtonAtom href="/projects" onClick={() => { }}>
+                      프로젝트
+                    </ButtonAtom>
+                  </MenuItem>
+                  <MenuItem>
+                    <ButtonAtom href="/admin-chat" onClick={() => { }}>
+                      관리자와 대화
+                    </ButtonAtom>
+                  </MenuItem>
+                  <MenuItem>
+                    <ButtonAtom href="/schedule" onClick={() => { }}>
+                      일정
+                    </ButtonAtom>
+                  </MenuItem>
+                  <MenuItem>
+                    <ButtonAtom href="/profile" onClick={() => { }}>
+                      프로필
+                    </ButtonAtom>
+                  </MenuItem>
+                  <Divider />
+                  <MenuItem>
+                    <Button
+                      onClick={() => { }}
                       color="primary"
                       variant="contained"
-                      component="a"
-                      href="/material-ui/getting-started/templates/sign-up/"
-                      onClick={toggleDrawer(true)}
-                      sx={{width: '100%'}}
+                      href="/sign-up"
+                      sx={{ width: '100%' }}
                     >
                       Sign up
-                    </ButtonAtom>
-                  </MenuItemAtom>
-                  <MenuItemAtom>
-                    <ButtonAtom
+                    </Button>
+                  </MenuItem>
+                  <MenuItem>
+                    <Button
+                      onClick={() => { }}
                       color="primary"
                       variant="outlined"
-                      component="a"
-                      href="/material-ui/getting-started/templates/sign-in/"
-                      onClick={toggleDrawer(true)}
-                      sx={{width: '100%'}}
+                      href="/sign-in"
+                      sx={{ width: '100%' }}
                     >
                       Sign in
-                    </ButtonAtom>
-                  </MenuItemAtom>
-                </BoxAtom>
-              </DrawerAtom>
-            </BoxAtom>
+                    </Button>
+                  </MenuItem>
+                </Box>
+              </Drawer>
+            </Box>
           </ToolBarAtomNavigation>
-        </ContainerAtom>
+        </Container>
       </AppBarAtomFixed>
     </div>
   );
@@ -201,26 +205,26 @@ const NavigationBarMolecule = ({mode}: AppAppBarProps) => {
 
 interface ToggleColorModeProps {
   mode: PaletteMode;
+  toggleColorMode: () => void;
 }
 
-function ToggleColorMode({mode}: ToggleColorModeProps) {
+function ToggleColorMode({ mode, toggleColorMode }: ToggleColorModeProps) {
   return (
-    <BoxAtom sx={{maxWidth: '32px'}}>
-      <ButtonAtom
+    <Box sx={{ maxWidth: '32px' }}>
+      <Button
         variant="text"
         size="small"
         aria-label="button to toggle theme"
-        onClick={() => {
-        }}
-        sx={{minWidth: '32px', height: '32px', p: '4px'}}
+        onClick={toggleColorMode}
+        sx={{ minWidth: '32px', height: '32px', p: '4px' }}
       >
         {mode === 'dark' ? (
-          <WbSunnyRoundedIcon fontSize="small"/>
+          <WbSunnyRoundedIcon fontSize="small" />
         ) : (
-          <ModeNightRoundedIcon fontSize="small"/>
+          <ModeNightRoundedIcon fontSize="small" />
         )}
-      </ButtonAtom>
-    </BoxAtom>
+      </Button>
+    </Box>
   );
 }
 
