@@ -1,6 +1,7 @@
 import {forwardRef} from "react";
 import {Icon, IconProps} from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const IconAtom = forwardRef<HTMLElement, IconProps>
 ((props, ref) => {
@@ -13,4 +14,8 @@ const IconAtomSave = () => {
   return <Icon component={SaveIcon}/>;
 }
 
-export {IconAtomSave};
+const IconAtomMenu = () => {
+  return <Icon component={MenuIcon}/>;
+}
+
+export {IconAtomSave, IconAtomMenu};

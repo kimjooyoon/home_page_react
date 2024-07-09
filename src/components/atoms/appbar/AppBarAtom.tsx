@@ -1,11 +1,9 @@
 import * as React from 'react';
 
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import MenuIcon from '@mui/icons-material/Menu';
 
 import {PaletteMode} from '@mui/material';
 
@@ -16,6 +14,8 @@ import ButtonAtom from "../button/ButtonAtom.tsx";
 import BoxAtom from "../box/BoxAtom.tsx";
 import TypographyAtom from "../typography/TypographyAtom.tsx";
 import MenuItemAtom from "../menuitem/MenuItemAtom.tsx";
+import {IconAtomMenu} from "../icon/IconAtom.tsx";
+import ToolBarAtom from "../toolbar/ToolBarAtom.tsx";
 
 interface ToggleColorModeProps {
   mode: PaletteMode;
@@ -73,7 +73,7 @@ function AppAppBar({mode}: AppAppBarProps) {
         }}
       >
         <Container maxWidth="lg">
-          <Toolbar
+          <ToolBarAtom
             variant="regular"
             sx={(theme) => ({
               display: 'flex',
@@ -188,7 +188,7 @@ function AppAppBar({mode}: AppAppBarProps) {
                 onClick={toggleDrawer(true)}
                 sx={{minWidth: '30px', p: '4px'}}
               >
-                <MenuIcon/>
+                <IconAtomMenu/>
               </ButtonAtom>
               <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
                 <BoxAtom
@@ -252,7 +252,7 @@ function AppAppBar({mode}: AppAppBarProps) {
                 </BoxAtom>
               </Drawer>
             </BoxAtom>
-          </Toolbar>
+          </ToolBarAtom>
         </Container>
       </AppBar>
     </div>
