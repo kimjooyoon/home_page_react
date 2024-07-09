@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 interface TimeSlotAtomProps {
   label: string;
   color: string;
-  type: 'inProgress' | 'start' | 'end' | 'start-end';
+  type: 'inProgress' | 'start' | 'end' | 'start-end' | 'empty';
 }
 
 const TimeSlotAtom = ({ label, color, type }: TimeSlotAtomProps) => {
@@ -48,6 +48,12 @@ const TimeSlotAtom = ({ label, color, type }: TimeSlotAtomProps) => {
       color: '#fff',
       display: 'flex',
       justifyContent: 'space-between',
+      height: '20px', // 세로 길이 고정
+    },
+    empty: {
+      backgroundColor: 'transparent',
+      padding: '4px 8px',
+      margin: '2px 0',
       height: '20px', // 세로 길이 고정
     }
   };
