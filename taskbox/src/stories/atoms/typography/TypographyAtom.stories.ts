@@ -13,7 +13,6 @@ type Story = StoryObj<typeof TypographyAtom>;
 export const h1_primary: Story = {
   args: {
     variant:"h1",
-    color:"textPrimary",
     children: 'this is single line atom',
   },
 };
