@@ -1,7 +1,6 @@
 import React from "react";
 import {ButtonProps} from "@mui/material";
 import StyledButton from "./StyledButton";
-import SaveIcon from '@mui/icons-material/Save';
 import {CancelledButton, CompletedButton, InProgressButton, PlannedButton} from "./StatusButtons.tsx";
 
 export interface ButtonAtomProps extends ButtonProps {
@@ -29,13 +28,20 @@ const ButtonAtom: React.FC<ButtonAtomProps> =
 export default ButtonAtom;
 
 
-const ButtonAtomSaveIcon: React.FC<ButtonAtomProps> = (props) => {
-  return (
-    <ButtonAtom {...props} startIcon={<SaveIcon/>}/>
-  );
-};
+const ButtonAtomIcon: React.FC<ButtonAtomProps> =
+  ({
+     startIcon,
+     children,
+     onClick,
+   }) => {
+    return (
+      <ButtonAtom startIcon={startIcon} onClick={onClick}>
+        {children}
+      </ButtonAtom>
+    );
+  };
 
-export {ButtonAtomSaveIcon};
+export {ButtonAtomIcon};
 
 
 const ButtonAtomPlanned = () => {

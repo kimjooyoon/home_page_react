@@ -1,6 +1,7 @@
-import { MouseEvent } from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import ButtonAtom, { ButtonAtomSaveIcon } from "./ButtonAtom";
+import {MouseEvent} from "react";
+import {render, screen, fireEvent} from "@testing-library/react";
+import ButtonAtom, {ButtonAtomIcon} from "./ButtonAtom";
+import {IconAtomSave} from "../icon/IconAtom.tsx";
 
 describe('ButtonAtom', () => {
   test('renders correctly', () => {
@@ -34,15 +35,15 @@ describe('ButtonAtomSaveIcon', () => {
     let num = 0;
 
     render(
-      <ButtonAtomSaveIcon
+      <ButtonAtomIcon
         onClick={(event: MouseEvent<HTMLButtonElement>): void => {
           if (event != null) {
             num = num + 1;
           }
         }}
-      >
-        Save Button
-      </ButtonAtomSaveIcon>
+        children={'Save Button'}
+        startIcon={<IconAtomSave/>}
+      />
     );
 
     const buttonElement = screen.getByText('Save Button');
