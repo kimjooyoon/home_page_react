@@ -1,14 +1,15 @@
 import { ThemeProvider } from '@mui/material/styles';
 import {withThemeFromJSXProvider} from '@storybook/addon-themes';
 
-import theme from '../../src/theme';
+import lightTheme from '../../src/styles/lightTheme';
+import darkTheme from '../../src/styles/darkTheme';
 import {GlobalStyles} from "@mui/material";
 
 export const decorators = [
     withThemeFromJSXProvider({
         themes: {
-            light: theme,
-            dark: theme,
+            light: lightTheme,
+            dark: darkTheme,
         },
         defaultTheme: 'light',
         Provider: ThemeProvider,
