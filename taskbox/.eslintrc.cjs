@@ -8,7 +8,7 @@ module.exports = {
         'plugin:react-hooks/recommended',
         'plugin:storybook/recommended',
     ],
-    ignorePatterns: ['dist', '.eslintrc.cjs', '*.ts'],
+    ignorePatterns: ['dist', '.eslintrc.cjs', '*.ts', '*.tsx'],
     parserOptions: {ecmaVersion: 'latest', sourceType: 'module'},
     settings: {react: {version: '18.3.3'}},
     plugins: ['react-refresh'],
