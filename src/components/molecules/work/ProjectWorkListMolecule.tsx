@@ -1,5 +1,5 @@
 import BoxAtom from "../../atoms/box/BoxAtom";
-import ButtonAtom, {ButtonAtomInProgress} from "../../atoms/button/ButtonAtom";
+import ButtonAtom, {GetCategoryButtonAtom} from "../../atoms/button/ButtonAtom";
 import TypographyAtom from "../../atoms/typography/TypographyAtom";
 import TextFormAtom, {TextFieldAtomMultiline} from "../../atoms/textform/TextFormAtom";
 import {CategoryTagAtom} from '../../atoms/tag/SpecificTags';
@@ -14,6 +14,7 @@ interface ProjectWorkListMoleculeProps {
   onCancel: () => void;
   onSave: () => void;
   tagCategory: 'design' | 'back-end' | 'front-end' | 'plan' | 'deploy';
+  status: 'planned' | 'in-progress' | 'canceled' | 'completed';
 }
 
 const ProjectWorkListMolecule =
@@ -26,7 +27,8 @@ const ProjectWorkListMolecule =
      onContentChange,
      onCancel,
      onSave,
-     tagCategory
+     tagCategory,
+     status
    }: ProjectWorkListMoleculeProps) => {
     return (
       <BoxAtom sx={{
@@ -51,7 +53,7 @@ const ProjectWorkListMolecule =
           <TypographyAtom variant="body1" sx={{marginRight: '16px'}}>
             {dateRange}
           </TypographyAtom>
-          <ButtonAtomInProgress/>
+          {GetCategoryButtonAtom(status)}
         </BoxAtom>
         <BoxAtom sx={{border: '1px solid #E0E0E0', borderRadius: '4px', padding: '16px', marginBottom: '16px'}}>
           <TextFieldAtomMultiline
