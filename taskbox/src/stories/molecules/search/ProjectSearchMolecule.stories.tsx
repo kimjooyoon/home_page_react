@@ -11,5 +11,7 @@ export default meta;
 type Story = StoryObj<typeof ProjectSearchMolecule>;
 
 export const Basic: Story = {
-  args: {}
+  args: {
+    onClick: () => console.log(['Data:', 1, 3, 4]),
+  }
 };

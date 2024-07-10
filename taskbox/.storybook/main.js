@@ -8,6 +8,13 @@ const config = {
     "@storybook/addon-interactions",
     "@storybook/addon-themes",
     '@storybook/addon-viewport',
+    "@storybook/addon-actions/register",
+    {
+      name: '@storybook/addon-console',
+      options: {
+        panelExclude: [],
+      },
+    },
   ],
   framework: {
     name: "@storybook/react-vite",
