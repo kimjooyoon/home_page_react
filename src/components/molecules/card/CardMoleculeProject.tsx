@@ -20,26 +20,33 @@ export interface CardMoleculeProjectProps {
   projectDetails: string;
   description: string;
   customerProfile: CustomerProfile;
+  isAdmin: boolean;
 }
 
 const CardMoleculeProject: React.FC<CardMoleculeProjectProps> =
   ({
-     projectName, startDate, endDate,
-     status, projectDetails,
+     projectName,
+     startDate,
+     endDate,
+     status,
+     projectDetails,
      description,
      customerProfile,
+     isAdmin,
    }) => {
     return (
-      <BoxAtom sx={{
-        border: '1px solid #E0E0E0',
-        borderRadius: '4px',
-        padding: '16px',
-        width: '100%',
-        maxWidth: '800px',
-        margin: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-      }}>
+      <BoxAtom
+        sx={{
+          border: '1px solid #E0E0E0',
+          borderRadius: '4px',
+          padding: '16px',
+          width: '100%',
+          maxWidth: '800px',
+          margin: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
         <BoxAtom sx={{display: 'flex', justifyContent: 'space-between', marginBottom: '16px'}}>
           {GetStatusButtonAtom(status)}
         </BoxAtom>
@@ -52,36 +59,36 @@ const CardMoleculeProject: React.FC<CardMoleculeProjectProps> =
           {startDate} ~ {endDate}
         </TypographyAtom>
 
-        <BoxAtom sx={{border: '1px solid #E0E0E0', borderRadius: '4px', padding: '16px', marginBottom: '16px'}}>
-          <TextFieldAtomMultiline
-            label="Detail"
-            value={projectDetails}
-            onChange={() => {
-            }}
-          />
-        </BoxAtom>
+        <TextFieldAtomMultiline
+          label="상세 내용"
+          value={projectDetails}
+          onChange={() => {
+          }}
+        />
 
-        <BoxAtom sx={{display: 'flex', justifyContent: 'space-between', marginBottom: '16px'}}>
-          <BoxAtom sx={{width: '100%', marginRight: '16px'}}>
-            <TextFieldAtomMultiline label={'Description'} value={description} rows={14} onChange={() => {
-            }}/>
+        {isAdmin && (
+          <BoxAtom sx={{display: 'flex', justifyContent: 'space-between', marginTop: '16px'}}>
+            <BoxAtom sx={{width: '100%', marginRight: '16px'}}>
+              <TextFieldAtomMultiline label={'메모'} value={description} rows={14} onChange={() => {
+              }}/>
+            </BoxAtom>
+            <BoxAtom sx={{border: '1px solid #E0E0E0', borderRadius: '4px', padding: '16px', width: '300px'}}>
+              <TypographyAtom variant="h6" sx={{marginBottom: '8px'}}>
+                고객 프로필 정보
+              </TypographyAtom>
+              <TextFormAtom label="이름" value={customerProfile.name} onChange={() => {
+              }}/>
+              <TextFormAtom label="Email" value={customerProfile.email} onChange={() => {
+              }}/>
+              <TextFormAtom label="연락처" value={customerProfile.phone} onChange={() => {
+              }}/>
+              <TextFormAtom label="회사명" value={customerProfile.company} onChange={() => {
+              }}/>
+              <TextFormAtom label="직책" value={customerProfile.position} onChange={() => {
+              }}/>
+            </BoxAtom>
           </BoxAtom>
-          <BoxAtom sx={{border: '1px solid #E0E0E0', borderRadius: '4px', padding: '16px', width: '300px'}}>
-            <TypographyAtom variant="h6" sx={{marginBottom: '8px'}}>
-              고객 프로필 정보
-            </TypographyAtom>
-            <TextFormAtom label="이름" value={customerProfile.name} onChange={() => {
-            }}/>
-            <TextFormAtom label="Email" value={customerProfile.email} onChange={() => {
-            }}/>
-            <TextFormAtom label="연락처" value={customerProfile.phone} onChange={() => {
-            }}/>
-            <TextFormAtom label="회사명" value={customerProfile.company} onChange={() => {
-            }}/>
-            <TextFormAtom label="직책" value={customerProfile.position} onChange={() => {
-            }}/>
-          </BoxAtom>
-        </BoxAtom>
+        )}
       </BoxAtom>
     );
   };

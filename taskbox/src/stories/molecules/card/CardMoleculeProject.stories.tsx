@@ -29,6 +29,7 @@ export const Basic: Story = {
       phone: '',
       company: '',
       position: '',
-    }
+    },
+    isAdmin: true
   }
 };
