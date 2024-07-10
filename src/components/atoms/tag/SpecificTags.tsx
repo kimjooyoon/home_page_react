@@ -9,7 +9,7 @@ import DeployIcon from '@mui/icons-material/CloudUpload';
 export const CategoryTagAtom = (category: 'design' | 'back-end' | 'plan' | 'deploy' | 'front-end') => {
   switch (category) {
     case 'design':
-      return <TagAtomDeploy/>
+      return <TagAtomDesign/>
     case 'back-end':
       return <TagAtomBackEnd/>
     case 'deploy':
@@ -30,11 +30,11 @@ export const TagAtomBackEnd = () => (
 );
 
 export const TagAtomFrontEnd = () => (
-  <TagAtom label="Front End" color="#7E57C2" icon={<FrontEndIcon/>}/>
+  <TagAtom label="Front End" color="#7E57C2" icon={<FrontEndIcon sx={{color: '#cfffcc'}}/>}/>
 );
 
 export const TagAtomPlan = () => (
-  <TagAtom label="Plan" color="#8D6E63" icon={<PlanIcon/>}/>
+  <TagAtom label="Plan" color="#8D6E63" icon={<PlanIcon sx={{color: '#e2c332'}}/>}/>
 );
 
 export const TagAtomDeploy = () => (
