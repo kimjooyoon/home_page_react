@@ -1,22 +1,22 @@
-import { MouseEvent } from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import DropDownAtom from "./DropDownAtom";
-import { MenuItem } from "@mui/material";
+import {  SelectChangeEvent } from "@mui/material";
 
 describe('DropDownAtom', () => {
-  test('renders correctly and handles click events', () => {
-    let num = 0;
+  test('renders correctly and handles change events', () => {
+    let selectedValue = '';
+
+    const handleChange = (event: SelectChangeEvent<unknown>) => {
+      selectedValue = event.target.value as string;
+    };
 
     render(
       <DropDownAtom
-        onClick={(event: MouseEvent<HTMLDivElement>): void => {
-          if (event != null) {
-            num = num + 1;
-          }
-        }}
-      >
-        <MenuItem value={10}>Ten</MenuItem>
-      </DropDownAtom>
+        label="Test Dropdown"
+        value={selectedValue}
+        options={['Ten', 'Twenty', 'Thirty']}
+        onChange={handleChange}
+      />
     );
 
     // 드롭다운 열기
@@ -29,11 +29,12 @@ describe('DropDownAtom', () => {
 
     // 클릭 이벤트 테스트
     fireEvent.click(menuItemElement);
-    expect(num).toBe(1);
+    expect(selectedValue).toBe('Ten');
 
-    // 다시 클릭하여 num이 증가하는지 테스트
+    // 다른 값을 선택하여 selectedValue가 변경되는지 테스트
     fireEvent.mouseDown(dropdownElement);
-    fireEvent.click(menuItemElement);
-    expect(num).toBe(2);
+    const anotherMenuItemElement = screen.getByText('Twenty');
+    fireEvent.click(anotherMenuItemElement);
+    expect(selectedValue).toBe('Twenty');
   });
 });
