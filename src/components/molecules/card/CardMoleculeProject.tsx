@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import BoxAtom from "../../atoms/box/BoxAtom";
-import {GetStatusButtonAtom} from "../../atoms/button/ButtonAtom";
+import ButtonAtom, {GetStatusButtonAtom} from "../../atoms/button/ButtonAtom";
 import TypographyAtom from "../../atoms/typography/TypographyAtom";
 import TextFormAtom, {TextFieldAtomMultiline} from "../../atoms/textform/TextFormAtom";
 
@@ -34,6 +34,12 @@ const CardMoleculeProject: React.FC<CardMoleculeProjectProps> =
      customerProfile,
      isAdmin,
    }) => {
+    const [detailsVisible, setDetailsVisible] = useState(false);
+
+    const handleToggleDetails = () => {
+      setDetailsVisible((prev) => !prev);
+    };
+
     return (
       <BoxAtom
         sx={{
@@ -59,34 +65,46 @@ const CardMoleculeProject: React.FC<CardMoleculeProjectProps> =
           {startDate} ~ {endDate}
         </TypographyAtom>
 
-        <TextFieldAtomMultiline
-          label="상세 내용"
-          value={projectDetails}
-          onChange={() => {
-          }}
-        />
+        {detailsVisible && (
+          <>
+            <TextFieldAtomMultiline
+              label="상세 내용"
+              value={projectDetails}
+              onChange={() => {
+              }}
+            />
+
+            {isAdmin && (
+              <BoxAtom sx={{display: 'flex', justifyContent: 'space-between', marginTop: '16px'}}>
+                <BoxAtom sx={{width: '100%', marginRight: '16px'}}>
+                  <TextFieldAtomMultiline label={'메모'} value={description} rows={14} onChange={() => {
+                  }}/>
+                </BoxAtom>
+                <BoxAtom sx={{border: '1px solid #E0E0E0', borderRadius: '4px', padding: '16px', width: '300px'}}>
+                  <TypographyAtom variant="h6" sx={{marginBottom: '8px'}}>
+                    고객 프로필 정보
+                  </TypographyAtom>
+                  <TextFormAtom label="이름" value={customerProfile.name} onChange={() => {
+                  }}/>
+                  <TextFormAtom label="Email" value={customerProfile.email} onChange={() => {
+                  }}/>
+                  <TextFormAtom label="연락처" value={customerProfile.phone} onChange={() => {
+                  }}/>
+                  <TextFormAtom label="회사명" value={customerProfile.company} onChange={() => {
+                  }}/>
+                  <TextFormAtom label="직책" value={customerProfile.position} onChange={() => {
+                  }}/>
+                </BoxAtom>
+              </BoxAtom>
+            )}
+          </>
+        )}
 
         {isAdmin && (
-          <BoxAtom sx={{display: 'flex', justifyContent: 'space-between', marginTop: '16px'}}>
-            <BoxAtom sx={{width: '100%', marginRight: '16px'}}>
-              <TextFieldAtomMultiline label={'메모'} value={description} rows={14} onChange={() => {
-              }}/>
-            </BoxAtom>
-            <BoxAtom sx={{border: '1px solid #E0E0E0', borderRadius: '4px', padding: '16px', width: '300px'}}>
-              <TypographyAtom variant="h6" sx={{marginBottom: '8px'}}>
-                고객 프로필 정보
-              </TypographyAtom>
-              <TextFormAtom label="이름" value={customerProfile.name} onChange={() => {
-              }}/>
-              <TextFormAtom label="Email" value={customerProfile.email} onChange={() => {
-              }}/>
-              <TextFormAtom label="연락처" value={customerProfile.phone} onChange={() => {
-              }}/>
-              <TextFormAtom label="회사명" value={customerProfile.company} onChange={() => {
-              }}/>
-              <TextFormAtom label="직책" value={customerProfile.position} onChange={() => {
-              }}/>
-            </BoxAtom>
+          <BoxAtom sx={{display: 'flex', justifyContent: 'center', marginTop: '16px'}}>
+            <ButtonAtom onClick={handleToggleDetails}>
+              {detailsVisible ? "상세 내용 숨기기" : "상세 내용 보기"}
+            </ButtonAtom>
           </BoxAtom>
         )}
       </BoxAtom>
