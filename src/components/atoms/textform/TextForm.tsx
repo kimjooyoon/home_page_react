@@ -10,6 +10,11 @@ interface TextFormProps {
   rows?: number;
 }
 
+const parseLines = (value: string | undefined) => {
+  if (!value) return '';
+  return value.replace(/(\\n)/g, "\n")
+};
+
 const TextForm: React.FC<TextFormProps> =
   ({
      value,
@@ -22,7 +27,7 @@ const TextForm: React.FC<TextFormProps> =
     return (
       <StyledTextField
         variant="outlined"
-        value={value}
+        value={parseLines(value)}
         onChange={onChange}
         placeholder={placeholder}
         label={label}

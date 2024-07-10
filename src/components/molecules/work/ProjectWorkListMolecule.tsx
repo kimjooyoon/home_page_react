@@ -79,15 +79,11 @@ const ProjectWorkListMolecule =
           />
         </BoxAtom>
         <BoxAtom sx={{border: '1px solid #E0E0E0', borderRadius: '4px', padding: '16px', marginBottom: '16px'}}>
-          <TypographyAtom variant="body2">
-            {description}
-          </TypographyAtom>
+          <TextFieldAtomMultiline label={'작업 내용'} value={description} onChange={() => {
+          }}/>
         </BoxAtom>
         {isAdmin && (
           <BoxAtom sx={{border: '1px solid #E0E0E0', borderRadius: '4px', padding: '16px', marginBottom: '16px'}}>
-            <TypographyAtom variant="body2">
-              메모:
-            </TypographyAtom>
             <TextFieldAtomMultiline
               label="관리자 메모"
               value={memo}
