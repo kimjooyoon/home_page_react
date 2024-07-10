@@ -10,7 +10,7 @@ export const TagAtomDesign = () => (
 );
 
 export const TagAtomBackEnd = () => (
-  <TagAtom label="Back End" color="#9575cd" icon={<BackEndIcon />} />
+  <TagAtom label="Back End" color="#9575cd" icon={<BackEndIcon sx={{color: '#cfffcc'}}/>} />
 );
 
 export const TagAtomFrontEnd = () => (

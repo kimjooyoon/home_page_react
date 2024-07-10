@@ -1,7 +1,8 @@
 import BoxAtom from "../../atoms/box/BoxAtom";
-import ButtonAtom from "../../atoms/button/ButtonAtom";
+import ButtonAtom, {ButtonAtomInProgress} from "../../atoms/button/ButtonAtom";
 import TypographyAtom from "../../atoms/typography/TypographyAtom";
 import TextFormAtom, {TextFieldAtomMultiline} from "../../atoms/textform/TextFormAtom";
+import {TagAtomBackEnd} from "../../atoms/tag/SpecificTags.tsx";
 
 const ProjectWorkListMolecule = () => {
   return (
@@ -20,27 +21,15 @@ const ProjectWorkListMolecule = () => {
           onChange={() => {
           }}
         />
-        <ButtonAtom
-          onClick={() => {
-          }}
-          variant="contained"
-          sx={{height: '56px', width: '150px', backgroundColor: '#9575cd', color: '#fff', marginLeft: '20px'}}
-        >
-          Back End
-        </ButtonAtom>
+        <BoxAtom sx={{marginLeft: '16px'}}>
+          <TagAtomBackEnd/>
+        </BoxAtom>
       </BoxAtom>
       <BoxAtom sx={{display: 'flex', alignItems: 'center', marginBottom: '16px'}}>
         <TypographyAtom variant="body1" sx={{marginRight: '16px'}}>
           2024-07-02 14:00 ~ 2024-07-25 18:00
         </TypographyAtom>
-        <ButtonAtom
-          onClick={() => {
-          }}
-          variant="contained"
-          sx={{backgroundColor: '#6a1b9a', color: '#fff'}}
-        >
-          진행중
-        </ButtonAtom>
+        <ButtonAtomInProgress/>
       </BoxAtom>
       <BoxAtom sx={{border: '1px solid #E0E0E0', borderRadius: '4px', padding: '16px', marginBottom: '16px'}}>
         <TextFieldAtomMultiline
