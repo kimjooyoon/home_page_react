@@ -1,8 +1,13 @@
+import BoxAtom from "../atoms/box/BoxAtom";
+import TypographyAtom from "../atoms/typography/TypographyAtom";
+
 const HomePage = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <BoxAtom>
+      <TypographyAtom variant="h1" component="h1">
+        Home Page
+      </TypographyAtom>
+    </BoxAtom>
   );
 };
 
