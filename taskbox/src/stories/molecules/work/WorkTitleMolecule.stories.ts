@@ -1,6 +1,13 @@
 import {Meta, StoryObj} from '@storybook/react';
 
-import WorkTitleMolecule, {Status} from '../../../../../src/components/molecules/work/WorkTitleMolecule';
+import WorkTitleMolecule from '../../../../../src/components/molecules/work/WorkTitleMolecule';
+
+const enum Status {
+  Planned="planned",
+  InProgress="inProgress",
+  Canceled="canceled",
+  Completed="completed"
+}
 
 const meta: Meta<typeof WorkTitleMolecule> = {
   component: WorkTitleMolecule,
@@ -11,6 +18,7 @@ export default meta;
 type Story = StoryObj<typeof WorkTitleMolecule>;
 
 
+// @ts-ignore
 export const Planned: Story = {
   args: {
     status: Status.Planned,

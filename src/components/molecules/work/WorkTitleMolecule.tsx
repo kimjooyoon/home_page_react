@@ -2,18 +2,19 @@ import BoxAtom from "../../atoms/box/BoxAtom.tsx";
 import {CanceledButton, CompletedButton, InProgressButton, PlannedButton} from "../../atoms/button/StatusButtons.tsx";
 import TypographyAtom from "../../atoms/typography/TypographyAtom.tsx";
 
-export const enum Status {
+const enum Status {
   Planned="planned",
   InProgress="inProgress",
   Canceled="canceled",
-  Completed="completed"
+  Completed="completed",
+  Empty="empty"
 }
 
 interface Props {
   title: string,
   startDate: string,
   endDate: string,
-  status: Status
+  status: string
 }
 
 function renderStatus(s: Status) {
@@ -29,9 +30,27 @@ function renderStatus(s: Status) {
   }
 }
 
-const workTitleMolecule = ({status, title, startDate, endDate}: Props) => {
+function stringToStatus(str: string) {
+  switch (str){
+    case Status.Planned:
+      return Status.Planned
+    case Status.InProgress:
+      return Status.InProgress
+    case Status.Canceled:
+      return Status.Canceled
+    case Status.Completed:
+      return Status.Completed
+    case Status.Empty:
+      return Status.Empty
+    default:
+      return Status.Empty
+  }
+}
+
+const WorkTitleMolecule = ({status, title, startDate, endDate}: Props) => {
+  const statusEnum = stringToStatus(status)
   return <BoxAtom>
-    {renderStatus(status)}
+    {renderStatus(statusEnum)}
     <TypographyAtom variant="h6" sx={{ marginTop: '8px' }}>
       {title}
     </TypographyAtom>
@@ -41,4 +60,4 @@ const workTitleMolecule = ({status, title, startDate, endDate}: Props) => {
   </BoxAtom>
 }
 
-export default workTitleMolecule;
+export default WorkTitleMolecule;
