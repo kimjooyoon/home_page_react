@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import BoxAtom from "../../atoms/box/BoxAtom";
-import ButtonAtom, {GetCategoryButtonAtom} from "../../atoms/button/ButtonAtom";
+import ButtonAtom, {GetStatusButtonAtom} from "../../atoms/button/ButtonAtom";
 import TypographyAtom from "../../atoms/typography/TypographyAtom";
 import TextFormAtom, {TextFieldAtomMultiline} from "../../atoms/textform/TextFormAtom";
 import {CategoryTagAtom} from '../../atoms/tag/SpecificTags';
@@ -69,7 +69,7 @@ const ProjectWorkListMolecule =
           <TypographyAtom variant="body1" sx={{marginRight: '16px'}}>
             {dateRange}
           </TypographyAtom>
-          {GetCategoryButtonAtom(status)}
+          {GetStatusButtonAtom(status)}
         </BoxAtom>
         <BoxAtom sx={{border: '1px solid #E0E0E0', borderRadius: '4px', padding: '16px', marginBottom: '16px'}}>
           <TextFieldAtomMultiline

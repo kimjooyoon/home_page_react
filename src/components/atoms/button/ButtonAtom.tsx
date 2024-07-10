@@ -43,7 +43,7 @@ const ButtonAtomIcon: React.FC<ButtonAtomProps> =
 
 export {ButtonAtomIcon};
 
-export function GetCategoryButtonAtom(category: 'planned' | 'in-progress' | 'canceled' | 'completed') {
+export function GetStatusButtonAtom(category: 'planned' | 'in-progress' | 'canceled' | 'completed') {
   switch (category) {
     case 'planned':
       return <ButtonAtomCanceled/>

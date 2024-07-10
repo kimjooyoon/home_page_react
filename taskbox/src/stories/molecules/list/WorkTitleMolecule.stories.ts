@@ -1,6 +1,6 @@
 import {Meta, StoryObj} from '@storybook/react';
 
-import WorkTitleMolecule from '../../../../../src/components/molecules/work/WorkTitleMolecule';
+import WorkTitleMolecule from '../../../../../src/components/molecules/list/WorkTitleMolecule';
 
 const enum Status {
   Planned="planned",

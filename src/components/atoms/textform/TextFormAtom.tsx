@@ -6,6 +6,7 @@ export interface TextFormAtomProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   label?: string;
+  rows?: number;
 }
 
 const TextFormAtom: React.FC<TextFormAtomProps> =
@@ -32,6 +33,7 @@ const TextFieldAtomMultiline: React.FC<TextFormAtomProps> =
      onChange,
      placeholder,
      label = 'Input',
+    rows
    }) => {
     return (
       <TextForm
@@ -40,7 +42,7 @@ const TextFieldAtomMultiline: React.FC<TextFormAtomProps> =
         value={value}
         onChange={onChange}
         multiline={true}
-        rows={4}
+        rows={rows? rows:4 }
       />
     );
   };

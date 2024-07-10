@@ -1,6 +1,6 @@
 import {Meta, StoryObj} from '@storybook/react';
 
-import ProjectWorkListMolecule from '../../../../../src/components/molecules/work/ProjectWorkListMolecule';
+import ProjectWorkListMolecule from '../../../../../src/components/molecules/list/ProjectWorkListMolecule';
 
 const meta: Meta<typeof ProjectWorkListMolecule> = {
   component: ProjectWorkListMolecule,
