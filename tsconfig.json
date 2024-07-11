@@ -1,5 +1,7 @@
 {
-  "files": [],
+  "files": [
+//    "svg.d.ts"
+  ],
   "references": [
     {
       "path": "./tsconfig.app.json"
@@ -17,5 +19,8 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "allowImportingTsExtensions": true
-  }
+  },
+  "include": [
+    "src/custom.d.ts"
+  ]
 }

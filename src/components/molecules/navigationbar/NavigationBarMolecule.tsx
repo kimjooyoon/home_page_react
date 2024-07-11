@@ -12,6 +12,7 @@ import Drawer from "../../atoms/drawer/DrawerAtom.tsx";
 import Divider from "../../atoms/divider/DividerAtom.tsx";
 import {AppBarAtomFixed} from "../../atoms/appbar/AppBarAtom.tsx";
 import ButtonAtom from "../../atoms/button/ButtonAtom.tsx";
+import logo from './stargaser_logo.svg';
 
 const NavigationBarMolecule = ({mode, toggleColorMode}: AppAppBarProps) => {
   const [open, setOpen] = React.useState(false);
@@ -43,9 +44,7 @@ const NavigationBarMolecule = ({mode, toggleColorMode}: AppAppBarProps) => {
               }}
             >
               <Image
-                src={
-                  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
-                }
+                src={logo}
                 style={logoStyle}
                 alt="logo of sitemark"
               />
