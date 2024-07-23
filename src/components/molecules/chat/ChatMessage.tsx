@@ -18,7 +18,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({message, sender, timestamp, av
         <AvatarAtom src={avatarUrl} alt={sender} sx={{ml: isOwnMessage ? 2 : 0, mr: isOwnMessage ? 0 : 2}}/>
       )}
       <BoxAtom
-        bgcolor={'background.default'}
+        bgcolor={isOwnMessage ? 'primary.A100':'background.default'}
         p={2}
         borderRadius={2}
         maxWidth="75%"
