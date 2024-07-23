@@ -3,7 +3,7 @@ import BoxAtom from "../../atoms/box/BoxAtom.tsx";
 import TypographyAtom from "../../atoms/typography/TypographyAtom.tsx";
 import AvatarAtom from "../../atoms/avatar/AvatarAtom.tsx";
 
-interface ChatMessageProps {
+interface ChatMessageMoleculeProps {
   message: string;
   sender: string;
   timestamp: string;
@@ -11,7 +11,7 @@ interface ChatMessageProps {
   isOwnMessage?: boolean;
 }
 
-const ChatMessage: React.FC<ChatMessageProps> = ({message, sender, timestamp, avatarUrl, isOwnMessage}) => {
+const ChatMessageMolecule: React.FC<ChatMessageMoleculeProps> = ({message, sender, timestamp, avatarUrl, isOwnMessage}) => {
   return (
     <BoxAtom display="flex" flexDirection={isOwnMessage ? 'row-reverse' : 'row'} alignItems="center" mb={2}>
       {avatarUrl && (
@@ -32,4 +32,4 @@ const ChatMessage: React.FC<ChatMessageProps> = ({message, sender, timestamp, av
   );
 };
 
-export default ChatMessage;
+export default ChatMessageMolecule;

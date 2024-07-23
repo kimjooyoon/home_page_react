@@ -1,14 +1,14 @@
 import {Meta, StoryObj} from '@storybook/react';
-import ChatMessage from '../../../../../src/components/molecules/chat/ChatMessage';
+import ChatMessageMolecule from '../../../../../src/components/molecules/chat/ChatMessageMolecule';
 
-const meta: Meta<typeof ChatMessage> = {
-  component: ChatMessage,
-  title: 'Molecules/ChatMessage',
+const meta: Meta<typeof ChatMessageMolecule> = {
+  component: ChatMessageMolecule,
+  title: 'Molecules/ChatMessageMolecule',
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ChatMessage>;
+type Story = StoryObj<typeof ChatMessageMolecule>;
 
 export const Basic: Story = {
   args: {

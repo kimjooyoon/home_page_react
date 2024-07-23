@@ -1,17 +1,17 @@
-// src/components/molecules/chat/ChatWindow.stories.tsx
+// src/components/molecules/chat/ChatWindowOrganism.stories.tsx
 
 import { Meta, StoryObj } from '@storybook/react';
-import ChatWindow from '../../../../../src/components/molecules/chat/ChatWindow';
+import ChatWindowOrganism from '../../../../../src/components/organisms/chat/ChatWindowOrganism';
 import { useState } from 'react';
 
-const meta: Meta<typeof ChatWindow> = {
-  component: ChatWindow,
-  title: 'Molecules/ChatWindow',
+const meta: Meta<typeof ChatWindowOrganism> = {
+  component: ChatWindowOrganism,
+  title: 'Organisms/ChatWindowOrganism',
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ChatWindow>;
+type Story = StoryObj<typeof ChatWindowOrganism>;
 
 export const Basic: Story = {
   render: () => {
@@ -28,7 +28,7 @@ export const Basic: Story = {
       setMessages([...messages, newMessage]);
     };
 
-    return <ChatWindow messages={messages} onSendMessage={handleSendMessage} />;
+    return <ChatWindowOrganism messages={messages} onSendMessage={handleSendMessage} />;
   },
 };
 
@@ -68,7 +68,7 @@ export const WithMessages: Story = {
         setMessages([...messages, newMessage]);
       };
 
-      return <ChatWindow messages={messages} onSendMessage={handleSendMessage} />;
+      return <ChatWindowOrganism messages={messages} onSendMessage={handleSendMessage} />;
     };
 
     return <ChatWindowWithMessages />;

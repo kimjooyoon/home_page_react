@@ -4,11 +4,11 @@ import SendIcon from '@mui/icons-material/Send';
 import InputAtom from '../../atoms/textform/InputAtom';
 import BoxAtom from "../../atoms/box/BoxAtom.tsx";
 
-interface ChatInputProps {
+interface ChatInputMoleculeProps {
   onSendMessage: (message: string) => void;
 }
 
-const ChatInput: React.FC<ChatInputProps> = ({onSendMessage}) => {
+const ChatInputMolecule: React.FC<ChatInputMoleculeProps> = ({onSendMessage}) => {
   const [message, setMessage] = useState('');
 
   const handleSendMessage = () => {
@@ -44,4 +44,4 @@ const ChatInput: React.FC<ChatInputProps> = ({onSendMessage}) => {
   );
 };
 
-export default ChatInput;
+export default ChatInputMolecule;
