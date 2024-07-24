@@ -4,6 +4,7 @@ import HomePage from './components/pages/HomePage';
 import ProjectPage from './components/pages/ProjectPage';
 import NotFoundPage from './components/pages/NotFoundPage';
 import NavigationBarMolecule from "./components/molecules/navigationbar/NavigationBarMolecule";
+import SchedulePage from "./components/pages/SchedulePage.tsx";
 
 const App = () => {
   return (
@@ -24,7 +25,7 @@ const App = () => {
           <Route path="/" element={<HomePage/>}/>
           <Route path="/projects" element={<ProjectPage/>}/>
           <Route path="/admin-chat" element={<div>Admin Chat Page</div>}/>
-          <Route path="/schedule" element={<div>Schedule Page</div>}/>
+          <Route path="/schedule" element={<SchedulePage/>}/>
           <Route path="/profile" element={<div>Profile Page</div>}/>
           <Route path="*" element={<NotFoundPage/>}/>
         </Routes>
