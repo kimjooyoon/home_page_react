@@ -20,6 +20,18 @@ export const Basic: Story = {
   },
 };
 
+export const NotReadNotSent: Story = {
+  args: {
+    message: 'Hello! How are you?',
+    sender: 'Alice',
+    timestamp: '10:00 AM',
+    avatarUrl: 'https://example.com/alice.jpg',
+    isOwnMessage: false,
+    unreadCount: 1,
+    isSent: false
+  },
+};
+
 export const OwnMessage: Story = {
   args: {
     message: "I'm good, thanks! How about you?",
