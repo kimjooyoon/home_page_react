@@ -46,7 +46,7 @@ const NavigationBarMolecule = ({mode, toggleColorMode}: AppAppBarProps) => {
               <Image
                 src={logo}
                 style={logoStyle}
-                alt="logo of sitemark"
+                alt="logo of stargaser"
               />
               <Box sx={{display: {xs: 'none', md: 'flex'}}}>
                 <MenuItem sx={{py: '6px', px: '12px'}}>

@@ -18,7 +18,7 @@ describe('NavigationBarMolecule', () => {
 
   it('renders without crashing', () => {
     renderComponent('light');
-    expect(screen.getByAltText('logo of sitemark')).toBeInTheDocument();
+    expect(screen.getByAltText('logo of stargaser')).toBeInTheDocument();
   });
 
   it('opens and closes the drawer menu', async () => {
