@@ -6,9 +6,13 @@ import {getDaysInMonth, sampleTimeSlots, SlotType, getSlotsForDay} from './Calen
 import BoxAtom from "../../atoms/box/BoxAtom.tsx";
 import GridAtom from "../../atoms/grid/GridAtom.tsx";
 
-const CalendarMolecule = () => {
-  const currentMonth = 6; // July
-  const currentYear = 2024;
+interface CalendarMoleculeProps {
+  currentMonth: number
+  currentYear: number
+}
+
+const CalendarMolecule: React.FC<CalendarMoleculeProps> =
+  ({currentMonth, currentYear}) => {
   const daysInMonth = getDaysInMonth(currentYear, currentMonth);
 
   const gridCells = Array.from({length: 42}).map((_, index) => {
