@@ -26,9 +26,13 @@ const CalendarSlotBoxMolecule: React.FC<CalendarSlotBoxMoleculeProps> =
         p={2}
         border="1px solid #ccc"
         borderRadius="8px"
-        maxWidth="600px"
+        maxWidth="400px"
+        width='400px'
+        bgcolor={"white"}
         mx="auto"
         my={2}
+        position="absolute"
+        zIndex={1000}
       >
         <TextFieldAtom
           fullWidth

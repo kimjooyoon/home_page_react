@@ -3,16 +3,16 @@ import CalendarDayHeaderAtom from '../../atoms/header/CalendarDayHeaderAtom';
 import CalendarGridCellAtom from '../../atoms/grid/CalendarGridCellAtom';
 import TimeSlotAtom from '../../atoms/timeslot/TimeSlotAtom';
 import {getDaysInMonth, sampleTimeSlots, SlotType, getSlotsForDay} from './CalendarMoleculeUtils';
-import BoxAtom from "../../atoms/box/BoxAtom.tsx";
-import GridAtom from "../../atoms/grid/GridAtom.tsx";
+import BoxAtom from "../../atoms/box/BoxAtom";
+import GridAtom from "../../atoms/grid/GridAtom";
 
 interface CalendarMoleculeProps {
-  currentMonth: number
-  currentYear: number
+  currentMonth: number;
+  currentYear: number;
+  onGridClick: (day: number, event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const CalendarMolecule: React.FC<CalendarMoleculeProps> =
-  ({currentMonth, currentYear}) => {
+const CalendarMolecule: React.FC<CalendarMoleculeProps> = ({currentMonth, currentYear, onGridClick}) => {
   const daysInMonth = getDaysInMonth(currentYear, currentMonth);
 
   const gridCells = Array.from({length: 42}).map((_, index) => {
@@ -23,7 +23,11 @@ const CalendarMolecule: React.FC<CalendarMoleculeProps> =
     const slots: SlotType[] = day !== undefined ? getSlotsForDay(day, currentYear, currentMonth, sampleTimeSlots) : [];
 
     return (
-      <GridAtom item xs={12 / 7} key={index} sx={{padding: 0}}>
+      <GridAtom item xs={12 / 7} key={index} sx={{padding: 0}} onClick={(event) => {
+        if (day) {
+          onGridClick(day, event);
+        }
+      }}>
         <CalendarGridCellAtom day={day}>
           {slots.map((slot, i) => (
             <TimeSlotAtom
